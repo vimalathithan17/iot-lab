@@ -15,8 +15,8 @@ node-red
 - close and shutdown node-red
 ## Aurdino sketch
 ```
-const int pingPin = 7; // Trigger Pin of Ultrasonic Sensor
-const int echoPin = 6; // Echo Pin of Ultrasonic Sensor
+const int pingPin = D0; // Trigger Pin of Ultrasonic Sensor
+const int echoPin = D1; // Echo Pin of Ultrasonic Sensor
 
 void setup() {
    Serial.begin(9600); // Starting Serial Terminal
@@ -37,6 +37,10 @@ void loop() {
    Serial.print("cm");
    Serial.println();
    delay(1000);
+}
+
+long microsecondsToCentimeters(long microseconds) {
+   return microseconds / 29 / 2;
 }
 ```
 - compile and upload the above sketch to ardiuno uno (nodered must be shutdown while re uploading the sketch)
